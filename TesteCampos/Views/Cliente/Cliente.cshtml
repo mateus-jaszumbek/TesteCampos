@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ClienteModel>;
+
+<div class="container">
+    <div class="d-flex justify-content-between aling-items-center mb-5">
+        <h1>Cadastro de Clientes</h1>
+        <a class="btn btn-success mx-2" asp-controller="Cliente" asp-action="Cadastrar">
+            <i class="bi bi-file-earmark-plus"></i>
+            Cadastrar um Novo Cliente
+        </a>
+    </div>
+
+    <table id="itens" class="table table-dark table-hover">
+
+        <thead>
+            <tr>
+                <th scope="col">Nome Cliente</th>
+                <th scope="col">Cidade</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                @foreach (var cliente in Model)
+                {
+                    <tr>
+                        <th scope="row">@cliente.nmCliente</th>
+                        <th>@cliente.Cidade</th>
+                        <td>
+                            <a asp-controller="Cliente" asp-action="Editar" asp-route-id="@cliente.idCliente" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                                Editar
+                            </a>
+                            <a asp-controller="Cliente" asp-action="Excluir" asp-route-id="@cliente.idCliente" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash-fill"></i>
+                                Excluir
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+</div>

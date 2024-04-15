@@ -1,0 +1,49 @@
+﻿@model VendaModel;
+@{
+    ViewData["title"] = "Excluir Venda";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Excluir de Venda</h1>
+    </div>
+
+    <form method="post" asp-controller="Venda" asp-action="Excluir">
+
+        <input type="hidden" asp-for=idVenda />
+
+        <h2 class="text-light">Tem certeza que deseja excluir o registro</h2>
+
+        <div class="mb-3">
+            <label for="qtdVenda" class="form-label text-light">Informe a quantidade de vendas</label>
+            <input type="text" class="form-control" asp-for="qtdVenda" id="qtdVenda" placeholder="Informe a quantidade de vendas" disabled>
+            <span asp-validation-for="qtdVenda" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="vlrUnitarioVenda" class="form-label text-light">Digite o valor Unitario da Venda</label>
+            <input type="text" class="form-control" asp-for="vlrUnitarioVenda" id="vlrUnitarioVenda" placeholder="Digite o valor Unitário da Venda" disabled>
+            <span asp-validation-for="vlrUnitarioVenda" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="vlrTotalVenda" class="form-label text-light">Informe o valorr Total da Venda</label>
+            <input type="text" class="form-control" asp-for="vlrUnitarioVenda" id="vlrUnitarioVenda" placeholder="Digite o valor Unitário da Venda" disabled>
+            <span asp-validation-for="vlrUnitarioVenda" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">
+                <i class="bi bi-trash-fill"></i>
+                Excluir
+            </button>
+            <a class="btn btn-primary w-50" asp-controller="Venda" asp-action="Venda">
+               
+
+                Voltar
+            </a>
+        </div>
+
+    </form>
+</div>
